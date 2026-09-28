@@ -3,6 +3,10 @@ import './App.css'
 import { InputAdd } from './components/InputAdd';
 import { List } from './components/List';
 import { TodoItem } from './components/TodoItem';
+import { TodoAPI } from './shared/services/api/TodoAPI';
+
+
+TodoAPI.getAll().then(data => console.log('APP', data));
 
 export function App() {
   const [list, setList] = useState([
