@@ -10,11 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "miragejs": "^0.1.48",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "miragejs": "^0.1.48",
     "@babel/core": "^7.29.7",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
