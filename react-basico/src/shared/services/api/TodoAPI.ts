@@ -32,7 +32,7 @@ export const TodoAPI =
         return;
     },
     async deleteById(id: string) {
-        await axiosInstance.put(`api/todos/${id}`);
+        await axiosInstance.delete(`api/todos/${id}`);
 
         return;
     },

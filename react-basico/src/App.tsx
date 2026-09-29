@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { InputAdd } from './components/InputAdd';
 import { List } from './components/List';
@@ -6,7 +6,7 @@ import { TodoItem } from './components/TodoItem';
 import { TodoAPI } from './shared/services/api/TodoAPI';
 
 
-TodoAPI.getAll().then(data => console.log('APP', data));
+
 
 export function App() {
   const [list, setList] = useState([
@@ -15,7 +15,11 @@ export function App() {
     { id: '3', label: 'Item 3', complete: false },
     { id: '4', label: 'Item 4', complete: false },
   ]);
-
+  
+  useEffect(()=>{
+    TodoAPI.getAll().then(data => setList(data));
+  }, []);
+  
   const handleAdd = (value: string) => {
     setList([
       ...list,
