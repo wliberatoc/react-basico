@@ -1,4 +1,5 @@
- import TodoItemStyles from './TodoItem.module.css';
+ import { Link } from 'react-router';
+import TodoItemStyles from './TodoItem.module.css';
 
 
  interface ITodoItemProps {
@@ -12,9 +13,9 @@
 export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps) => {
     return (
         <li key={id} className={TodoItemStyles.Item}>
-          <span className={TodoItemStyles.Text}>
+          <Link to={`/detalhe/${id}`} className={TodoItemStyles.Text}>
             {label}
-          </span>
+          </Link>
 
           <div className={TodoItemStyles.ButtonsGroup}>
             <button className={TodoItemStyles.ButtonComplete} onClick={() => onComplete(id)}> 
