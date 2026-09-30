@@ -1,4 +1,5 @@
- 
+ import TodoItemStyles from './TodoItem.module.css';
+
 
  interface ITodoItemProps {
         id: string;
@@ -10,13 +11,17 @@
 
 export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps) => {
     return (
-        <li key={id}>
+        <li key={id} className={TodoItemStyles.Item}>
+          <span className={TodoItemStyles.Text}>
             {label}
-            {complete ? '(Completo)' : '(Incompleto)'}
-            <button onClick={() => onComplete(id)}> 
+          </span>
+
+          <div className={TodoItemStyles.ButtonsGroup}>
+            <button className={TodoItemStyles.ButtonComplete} onClick={() => onComplete(id)}> 
               {complete ? 'Desmarcar' : 'Marcar'}
             </button>
-            <button onClick={() => onRemove(id)}>Remover</button>
+            <button className={TodoItemStyles.ButtonRemove} onClick={() => onRemove(id)}>Remover</button>
+          </div>
           </li>
     );
 }
