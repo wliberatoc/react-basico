@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import InputAddStyles from './InputAdd.module.css';
 
 
@@ -9,17 +9,21 @@ interface IInputAddProps {
 
 export const InputAdd = (props: IInputAddProps) => {
     const [value, setValue] = useState('');
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleAdd = () => {
         props.onAdd(value);
         setValue('');
+        inputRef.current?.focus();
     }
 
     return (
         <div className={InputAddStyles.Container}>
             <input 
             className={InputAddStyles.Input}
-            value={value} onChange={(e) => setValue(e.target.value)}
+            value={value} 
+            ref={inputRef}
+            onChange={(e) => setValue(e.target.value)}
              />
 
             <button onClick={handleAdd} className={InputAddStyles.Button}> Adicionar </button>
